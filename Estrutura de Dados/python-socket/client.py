@@ -2,6 +2,9 @@ import socket
 import threading
 
 
+#teste de mudança
+
+
 choose_host = input("Digite o ip do Host, ou enter para 'localhost'")
 HOST = choose_host if choose_host != "" else "localhost"
 PORT = 5000
