@@ -1,0 +1,124 @@
+# Servidor Supershirt -- Socket TCP com Bubble Sort
+
+Trabalho Integrador de Estruturas de Dados\
+Autores: **Nicolas, Neto e Gustavo**
+
+## Descrição
+
+Aplicação cliente-servidor desenvolvida em Python utilizando **sockets
+TCP**.\
+O servidor recebe números enviados pelo cliente, ordena usando **Bubble
+Sort** e devolve o resultado em tempo real.\
+Inclui tratamento robusto de exceções, timeout, comandos personalizados
+e ASCII art exibida no início da conexão.
+
+O servidor foi preparado para rodar em **Docker** e pode ser hospedado
+em serviços como **AWS EC2**, inclusive usando DNS público.
+
+## Funcionalidades
+
+### Servidor
+
+-   Aceita múltiplos clientes simultâneos via threads\
+-   Exibe menu inicial com ASCII art\
+-   Ordena números usando Bubble Sort\
+-   Tratamento completo de erros e desconexões\
+-   Timeout por inatividade\
+-   Comandos especiais:
+    -   `info` → mostra detalhes do servidor\
+    -   `sair` → encerra apenas o cliente\
+    -   `desligar` → instrução para cliente encerrar\
+-   Log limpo no terminal
+
+### Cliente
+
+-   Interface no terminal simples e intuitiva\
+-   Thread separada para ler mensagens do servidor\
+-   Envia números ou comandos de texto\
+-   Desconexão limpa
+
+## Estrutura do Projeto
+
+/ ├── server.py ├── client.py ├── menu.txt ├── Dockerfile └── README.md
+
+## Execução Local
+
+### Requisitos
+
+-   Python 3.10+
+-   Sistema operacional Linux, Windows ou macOS
+
+### Instalação
+
+Nenhuma dependência externa é necessária.
+
+### Iniciar servidor
+
+    python server.py
+
+### Iniciar cliente
+
+    python client.py
+
+## Docker
+
+### Build da imagem
+
+    docker build -t supershirt-server .
+
+### Executar container
+
+    docker run -d -p 5000:5000 supershirt-server
+
+O servidor ficará disponível em: 0.0.0.0:5000
+
+## Hospedagem na AWS
+
+Funciona perfeitamente em: - EC2\
+- Lightsail\
+- ECS\
+- Fargate
+
+### Usando DNS da AWS
+
+ec2-xx-xxx-xxx-xxx.sa-east-1.compute.amazonaws.com
+
+## Comandos Disponíveis no Cliente
+
+  Comando              Descrição
+  -------------------- -----------------------------------
+  info                 Exibe informações do servidor
+  sair                 Encerra o cliente
+  desligar             Solicita encerramento do servidor
+  `<números>`{=html}   Ordena via Bubble Sort
+
+## Exemplo de Uso
+
+> 8 3 11 2\
+> Servidor: Ordenado com bubble sort: \[2, 3, 8, 11\]
+
+> info\
+> Servidor: Supershirt --- Trabalho integrador criado por Nicolas, Neto
+> e Gustavo.
+
+> sair\
+> Servidor: Conexão encerrada.
+
+## Segurança
+
+-   Timeout por cliente\
+-   Disconnect seguro\
+-   Threads independentes\
+-   Tratamento de exceções\
+-   Logs amigáveis para debug
+
+## Possíveis Melhorias Futuras
+
+-   Interface gráfica (Tkinter / PyQt)\
+-   Interface WebSocket\
+-   Dashboard de monitoramento do servidor\
+-   Implementar outros algoritmos de ordenação
+
+## Licença
+
+Uso acadêmico --- livre para estudo e modificação.

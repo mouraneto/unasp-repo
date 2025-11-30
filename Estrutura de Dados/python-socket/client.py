@@ -1,44 +1,53 @@
 import socket
 import threading
 
-# host = input("DIgite seu ip")
-host = "localhost"
-# if host == "":
-#     host = "ec2-56-124-114-137.sa-east-1.compute.amazonaws.com"
-    
+HOST = "localhost"
 PORT = 5000
 
-def receive_messages(sock):
+
+def receiver(sock):
     while True:
         try:
             data = sock.recv(1024)
             if not data:
                 break
-            print("Servidor:", data.decode('utf-8'))
-            if data.decode('utf-8').lower() == "desligar":
-                print("Conexão encerrada pelo servidor.")
-                sock.close()
+
+            text = data.decode("utf-8").strip()
+            print("Servidor:", text)
+
+            if text.lower() == "desligar":
+                print("Servidor encerrou.")
                 break
 
         except:
             break
 
-def main():
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect((host, PORT))
-    print("Conectado ao servidor.")
+    try:
+        sock.close()
+    except:
+        pass
 
-    thread = threading.Thread(target=receive_messages, args=(client,))
-    thread.daemon = True
-    thread.start()
+
+def main():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((HOST, PORT))
+
+    print("Conectado em {}:{}".format(HOST, PORT))
+
+    threading.Thread(target=receiver, args=(sock,), daemon=True).start()
 
     while True:
-        msg = input("Você: ")
-        if msg.lower() == 'sair':
+        msg = input("> ").strip()
+        if not msg:
+            continue
+        if msg.lower() == "sair":
+            sock.sendall(msg.encode("utf-8"))
             break
-        client.sendall(msg.encode('utf-8'))
 
-    client.close()
+        sock.sendall(msg.encode("utf-8"))
+
+    sock.close()
+
 
 if __name__ == "__main__":
     main()
