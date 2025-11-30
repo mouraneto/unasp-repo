@@ -1,7 +1,9 @@
 import socket
 import threading
 
-HOST = "localhost"
+
+choose_host = input("Digite o ip do Host, ou enter para 'localhost'")
+HOST = choose_host if choose_host != "" else "localhost"
 PORT = 5000
 
 
