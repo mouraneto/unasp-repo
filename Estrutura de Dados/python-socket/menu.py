@@ -1,5 +1,7 @@
-
+MENU = """\n\n\n
 ------------------------------------------------------------------------------
+
+
 Bem-vindo ao servidor SuperShirt.
 Trabalho integrador de Estrutura de Dados desenvolvido por:
 Nicolas — Neto — Gustavo.
@@ -11,3 +13,4 @@ Comandos disponíveis:
 ------------------------------------------------------------------------------
 
 Servidor pronto. Digite algo para iniciar.
+"""

@@ -1,10 +1,10 @@
 import socket
 import threading
-import time
+from menu import MENU
+from time import sleep
 
 HOST = "0.0.0.0"
 PORT = 5000
-
 
 
 def bubblesort(seq):
@@ -26,11 +26,11 @@ def handle_client(conn, addr):
             conn.sendall((msg + "\n").encode("utf-8"))
         except:
             pass
-    menu = open("unasp-repo\Estrutura de Dados\python-socket\menu.txt", "r", encoding="utf-8").read()
+ 
 
     print(f"[+] Conexão: {addr}")
     
-    send(menu)
+    send(MENU)
     conn.settimeout(120)
 
     while True:
@@ -55,6 +55,10 @@ def handle_client(conn, addr):
                 nums = list(map(int, msg.split()))
                 sorted_nums = bubblesort(nums)
                 send(f"Ordenado com bubble sort: {sorted_nums}")
+                send("Fechando conexão em 0.5 segundos...")
+                sleep(0.5)
+                conn.close()
+
             except ValueError:
                 send("Envie apenas números separados por espaço.")
 
