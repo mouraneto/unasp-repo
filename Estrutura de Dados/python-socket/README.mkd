@@ -1,7 +1,7 @@
 # Servidor Supershirt -- Socket TCP com Bubble Sort
 
 Trabalho Integrador de Estruturas de Dados\
-Autores: **Nicolas, Neto e Gustavo**
+Autores: **Nicolas Toledo Ra:098428, João Neto Ra: 211442 e Gustavo Barbosa 177736**
 
 ## Descrição
 

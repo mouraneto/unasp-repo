@@ -4,7 +4,9 @@ MENU = """\n\n\n
 
 Bem-vindo ao servidor SuperShirt.
 Trabalho integrador de Estrutura de Dados desenvolvido por:
-Nicolas — Neto — Gustavo.
+Nicolas Toledo Ra:098428, 
+João Neto Ra: 211442 e 
+Gustavo Barbosa 177736.
 
 Comandos disponíveis:
 - Envie números separados por espaço para receber ordenação via Bubble Sort.
