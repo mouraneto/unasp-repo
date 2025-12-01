@@ -86,7 +86,7 @@ def handle_client(conn, addr):
                     if not data:
                         break
                     msg = data.decode("utf-8").strip()
-                    if msg.lower() == "sair":
+                    if msg.lower() == "telegram sair":
                         send("Telegram encerrado")
                         break
                     

@@ -1,0 +1,53 @@
+Estrutura de Dados 2
+Projeto Integrador - Criação de um sistema Cliente/Servidor com transmissão e ordenação de
+números via sockets
+Atividade em Grupo (até 3 integrantes)
+Data de Entrega: 30/nov
+O grupo deverá implementar um sistema cliente/servidor usando sockets, onde o cliente se conecta
+ao servidor, transmite um conjunto de números inteiros, e o servidor realiza a ordenação desses
+números usando um algoritmo de ordenação definido. A comunicação entre cliente e servidor
+deverá ser feita via TCP.
+Requisitos:
+1. Servidor:
+○ O servidor deverá aguardar conexões de clientes.
+○ Ao receber a conexão de um cliente, ele deverá ler um conjunto de números inteiros
+que o cliente enviará.
+○ Após receber todos os números, o servidor deverá ordená-los utilizando um
+algoritmo de ordenação (por exemplo, Bubble Sort, QuickSort, ou Merge Sort).
+○ O servidor deverá então retornar os números ordenados ao cliente.
+○ O servidor deve fechar a conexão após enviar os números ordenados.
+2. Cliente:
+○ O cliente deverá se conectar ao servidor via socket.
+○ Ele deverá solicitar ao usuário a entrada de um conjunto de números inteiros.
+○ O cliente enviará esses números para o servidor.
+○ Após enviar os números, o cliente deverá aguardar a resposta do servidor.
+○ O cliente exibirá os números recebidos, que deverão estar ordenados.
+○ O cliente então fechará a conexão.
+Detalhes de Implementação:
+● A comunicação entre cliente e servidor deve ser baseada no protocolo TCP.
+● O servidor deve ser capaz de lidar com múltiplos clientes (pode ser síncrono, mas se desejar,
+poderá implementar com threads para suportar vários clientes simultâneos).
+Exemplo de Execução:
+Cliente:
+Digite os números separados por espaço: 45 12 78 34 5
+Números ordenados recebidos do servidor: 5 12 34 45 78
+Servidor:
+Conectado a um cliente.
+Recebendo os números: 45 12 78 34 5
+Ordenando os números...
+Enviando números ordenados: 5 12 34 45 78
+Sugestões:
+● Utilize a linguagem de programação que o grupo achar melhor.
+● Utilize as bibliotecas de socket nativas da linguagem escolhida.
+● Para a comunicação, utilize serialização simples (pode usar strings ou arrays de bytes para
+representar os números).
+● Teste seu servidor e cliente em máquinas separadas ou em portas diferentes para simular a
+comunicação de rede real.
+Desafios extras (opcionais):
+● Modifique o servidor para suportar múltiplas conexões simultâneas.
+● Adicione tratamento de erros para desconexões inesperadas.
+● Desenvolva uma interface gráfica para capturar a entrada de dados do usuário e depois, para
+mostrar o resultado.
+Entrega:
+● Código-fonte do servidor e do cliente.
+● Um arquivo explicando como executar o sistema e testes realizados.
